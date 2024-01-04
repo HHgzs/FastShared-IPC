@@ -18,7 +18,7 @@ file(GLOB_RECURSE
 )
 
 # 添加库的头文件路径
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/fsipc)
 
 # 编译生成动态链接库
 add_library(${LIBRARY_NAME} SHARED ${SOURCES})
@@ -45,15 +45,9 @@ install(TARGETS ${LIBRARY_NAME}
 
 
 # 设置头文件的安装路径
-install(DIRECTORY include/
+install(FILES include/fsipc.h
     DESTINATION include
 )
-# install(FILES your_header_file.h
-#     DESTINATION include
-# )
-
-
-
 
 # 导出目标，用于在外部项目中使用find_package命令查找库
 export(TARGETS fsipc
@@ -62,6 +56,7 @@ export(TARGETS fsipc
 
 # 设置Config.cmake文件的安装路径
 set(ConfigPackageLocation lib/cmake/fsipc)
+
 
 # 根据模板生成Config.cmake文件
 configure_file(Config.cmake.in 
@@ -72,3 +67,4 @@ configure_file(Config.cmake.in
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/fsipcConfig.cmake
     DESTINATION ${ConfigPackageLocation}
 )
+
