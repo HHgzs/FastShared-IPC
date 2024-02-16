@@ -16,7 +16,7 @@ add_library(
 target_sources(
     fsipc
         PRIVATE
-        ${CMAKE_SOURCE_DIR}/src/q.cpp
+        ${CMAKE_SOURCE_DIR}/src/fsipc.cpp
 )
 target_include_directories(
     fsipc
