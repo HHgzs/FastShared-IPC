@@ -1,0 +1,15 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/FSIPCTarget.cmake")
+
+set(
+    FSIPC_INCLUDE_DIRS
+        "${CMAKE_INSTALL_PREFIX}/include"
+        "${CMAKE_INSTALL_PREFIX}/include/fsipc"
+)
+
+set(
+    FSIPC_LIBS
+        fsipc::fsipc
+)
+
