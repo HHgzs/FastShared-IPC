@@ -2,8 +2,9 @@
 #include <iostream>
 using namespace std;
 int main() {
-    string str;
-    while(cin >> str) {
-        cout << fsipc::generateSharedMemoryKey(str) << endl;
+    string str = "hello";
+    int * ptr = fsipc::SharedMemory<int>(str);
+    while(cin >> *ptr) {
+        cout << *ptr << endl;
     }
 }

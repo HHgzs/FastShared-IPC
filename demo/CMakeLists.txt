@@ -9,3 +9,6 @@ include_directories(${FSIPC_INCLUDE_DIRS})
 
 add_executable(send send.cpp)
 target_link_libraries(send ${FSIPC_LIBS})
+
+add_executable(receive receive.cpp)
+target_link_libraries(receive ${FSIPC_LIBS})

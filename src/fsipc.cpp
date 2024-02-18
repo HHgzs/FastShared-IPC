@@ -1,13 +1,17 @@
 #include "fsipc.h"
 #include <sys/ipc.h>
 #include <sys/shm.h>
+#include <sys/sem.h>
 #include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <string>
+#define __FSIPC_CORE_LIST__ "fsipc_core_list"
+#define __NODE_BASIC_SIZE__ 8
 
-key_t fsipc::__shm_gen_hash_key__(const std::string& __str__) {
+
+key_t fsipc::__gen_hash_key__(const std::string& __str__) {
     unsigned long __hash = 5381;
     const char* __cstr = __str__.c_str();
     int __c;
